@@ -1,7 +1,10 @@
 package ru.kata.spring.boot_security.demo.models;
 
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -99,9 +102,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getShortRoles() {
-        return roleList.stream().map(role -> role.getRole().substring(5).concat(" ")).findAny().orElse(null);
     }
 }

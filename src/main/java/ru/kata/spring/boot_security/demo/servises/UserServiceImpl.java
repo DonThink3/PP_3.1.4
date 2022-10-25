@@ -31,10 +31,8 @@ public class UserServiceImpl implements UserService {
     }
     @Transactional
     public void save(User user) {
-        Set<Role> roles = user.getRoleList();
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         usersReposetories.save(user);
-        roleService.saveAll(roles);
     }
 
     public List<User> findAllUsers() {
